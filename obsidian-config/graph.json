@@ -1,0 +1,14 @@
+{
+  "colorGroups": [
+    {"query": "path:journal", "color": {"a": 1, "rgb": 3447003}},
+    {"query": "path:concepts", "color": {"a": 1, "rgb": 8900346}},
+    {"query": "path:entities", "color": {"a": 1, "rgb": 16750848}},
+    {"query": "path:projects", "color": {"a": 1, "rgb": 65280}},
+    {"query": "path:decisions", "color": {"a": 1, "rgb": 16711680}},
+    {"query": "tag:#digest", "color": {"a": 1, "rgb": 11141120}}
+  ],
+  "showArrow": true,
+  "nodeSizeMultiplier": 1.1,
+  "repelStrength": 10,
+  "linkDistance": 250
+}
