@@ -1,11 +1,8 @@
-# Python
-scripts/__pycache__/
-scripts/utils/__pycache__/
+node_modules/
+.env
 *.pyc
 *.pyo
-
-# Node
-mcp-server/node_modules/
-
-# Runtime artifacts
-scripts/batch-manifest.json
+__pycache__/
+pending/
+batch-manifest.json
+.DS_Store
