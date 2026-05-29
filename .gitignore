@@ -6,3 +6,4 @@ __pycache__/
 pending/
 batch-manifest.json
 .DS_Store
+.serena/
