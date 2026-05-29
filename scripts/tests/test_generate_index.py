@@ -5,6 +5,15 @@ def _write(p: Path, fm: str):
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(fm, encoding="utf-8")
 
+def test_no_dangling_separator_when_meta_empty(tmp_path: Path):
+    _write(tmp_path / "concepts" / "bare.md",
+           "---\ntype: concept\ntitle: Bare Note\n---\n")
+    out = build_index(tmp_path)
+    assert "[[concepts/bare|Bare Note]]" in out
+    assert "Bare Note]] — " not in out      # no dangling separator
+    assert "Bare Note]] —\n" not in out
+
+
 def test_index_lists_curated_excludes_journal(tmp_path: Path):
     _write(tmp_path / "patterns" / "oc.md",
            "---\ntype: pattern\ntitle: OC gotchas\nproject: openclaw\nstatus: active\nupdated: 2026-05-28\n---\n")

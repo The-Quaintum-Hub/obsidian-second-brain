@@ -26,12 +26,15 @@ def build_index(vault: Path) -> str:
             title = fm.get("title") or md.stem
             rel = md.relative_to(vault).with_suffix("")
             meta = " · ".join(x for x in (fm.get("project", ""), fm.get("status", "")) if x)
-            rows.append(f"- [[{rel}|{title}]] — {meta}")
+            line = f"- [[{rel}|{title}]]"
+            if meta:
+                line += f" — {meta}"
+            rows.append(line)
         if rows:
             out.append(f"## {folder}")
             out += rows
             out.append("")
-    return "\n".join(out)
+    return "\n".join(out) + "\n"
 
 def main() -> None:
     vault = get_vault_path()
